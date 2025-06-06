@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
 import bodyParser from "body-parser";
-import mailRoutes from "./routes/mail.routes.js";
+import routes from "./routes/index.routes.js";
 
 dotenv.config();
 
@@ -23,14 +23,7 @@ app.use(bodyParser.json());
 //public folder 
 app.use(express.static(path.join(__dirname, '../public')));
 
-//rutas
-
-//index
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../public/html/index.html"));
-});
-
-app.use("/api", mailRoutes);
+app.use("/", routes);
 
 //server
 app.listen(PORT, () => {
