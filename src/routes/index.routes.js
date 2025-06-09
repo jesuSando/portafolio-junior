@@ -9,11 +9,11 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 router.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../../public/html/index.html"));
+  res.sendFile(path.join(__dirname, "../../public/index.html"));
 });
 
 router.get("/redirect", (req, res) => {
-  res.sendFile(path.join(__dirname, "../../public/html/redirect.html"));
+  res.sendFile(path.join(__dirname, "../../public/redirect.html"));
 });
 
 router.use("/api", mailRoutes);
